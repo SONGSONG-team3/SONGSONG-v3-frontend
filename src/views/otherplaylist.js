@@ -145,7 +145,7 @@ const OtherPlaylist = () => {
 
             <div className="profile-container">
                 <div className="profile-info">
-                    <img src="/assets/img/image.png" className="profile-icon" alt="Profile" />
+                    <img src="/assets/img/noProfile.png" className="profile-icon" alt="Profile" />
                     <div className="profile-details">
                         <h2>{userNickname}</h2>
                         <p>🎵 {songCount} ❤️ {likeCount}</p>
