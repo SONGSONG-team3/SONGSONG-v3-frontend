@@ -8,10 +8,10 @@ import tokenValidCheck from '../auth/tokenValidCheck';
 const MainPage = () => {
     const [userInfo, setUserInfo] = useState(null);
     const [currentCategory, setCurrentCategory] = useState(0);
-    const [currentPage, setCurrentPage] = useState(0); // 현재 페이지를 추적하는 상태 추가
+    const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
     const [playlists, setPlaylists] = useState([]);
-    const [selectedGenreIndex, setSelectedGenreIndex] = useState(null); // 선택된 장르 인덱스 상태 추가
+    const [selectedGenreIndex, setSelectedGenreIndex] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {

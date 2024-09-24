@@ -33,7 +33,7 @@ const LoginPage = () => {
         const data = await response.json();
 
         if (data.success) {
-          Cookies.set('authToken', data.token); // 쿠키에 토큰 저장
+          Cookies.set('authToken', data.token);
           window.location.href = "/";
           console.log(data.token);
         } else {

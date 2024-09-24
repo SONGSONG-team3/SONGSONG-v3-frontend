@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";  // useParams 추가
+import { useParams } from "react-router-dom";
 import '../css/otherplaylist.css';
 import Cookies from 'js-cookie';
 import tokenValidCheck from '../auth/tokenValidCheck';
@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const OtherPlaylist = () => {
-    const { userNo } = useParams();  // useParams로 URL의 userNo 파라미터를 추출
+    const { userNo } = useParams();
     const [data, setData] = useState(null);
     const [isLiked, setIsLiked] = useState(false);
     const [likeCount, setLikeCount] = useState(0);

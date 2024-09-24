@@ -18,7 +18,7 @@ const MyPlaylist = () => {
     });
     useEffect(() => {
         const fetchData = async () => {
-            const token = Cookies.get("authToken"); // 쿠키에서 토큰을 가져옴
+            const token = Cookies.get("authToken");
             if (token) {
                 try {
                     const response = await fetch('/api/v3/playlists/myplaylist', {
@@ -26,7 +26,7 @@ const MyPlaylist = () => {
                     });
                     if (response.ok) {
                         const data = await response.json();
-                        console.log(data); // 응답 데이터 확인
+                        console.log(data); 
                         setUser(data.user);
                         setPlaylists(data.playlists);
                     } else {
@@ -51,7 +51,7 @@ const MyPlaylist = () => {
     };
     const handleToggleForm = () => {
         setShowForm(!showForm);
-        console.log("showForm 상태:", !showForm); // 상태 변화를 추적
+        console.log("showForm 상태:", !showForm);
     };
     const handleMyPageNavigation = async () => {
         try {
@@ -65,7 +65,7 @@ const MyPlaylist = () => {
     };
     const handleDelete = async (musicId) => {
         if (window.confirm("정말 삭제하시겠습니까?")) {
-            const token = Cookies.get("authToken"); // 쿠키에서 토큰을 가져옴
+            const token = Cookies.get("authToken");
             try {
                 const response = await fetch(`/api/v3/playlists/${musicId}`, {
                     method: 'DELETE',
@@ -86,7 +86,7 @@ const MyPlaylist = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const token = Cookies.get("authToken"); // 쿠키에서 토큰 가져오기
+        const token = Cookies.get("authToken");
         try {
             const response = await fetch('/api/v3/playlists/my', {
                 method: 'POST',
@@ -102,10 +102,10 @@ const MyPlaylist = () => {
                 }),
             });
     
-            const responseData = await response.text(); // 텍스트 응답 처리
+            const responseData = await response.text();
     
             if (response.ok) {
-                alert(responseData); // 서버에서 반환한 텍스트 알림
+                alert(responseData);
                 setShowForm(false);
                 setFormData({ category: '', songTitle: '', artist: '', songLink: '' });
                 window.location.reload();
