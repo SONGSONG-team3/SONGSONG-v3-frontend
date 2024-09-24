@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.navbar {
+    margin-bottom: 20px;
+    background-color: #43486E;
+}
+.navbar-nav .nav-link {
+    color: #fff !important;
+}
+.navbar-brand img {
+    height: 40px;
+}
+.profile-container {
+    display: flex;
+    padding: 20px;
+}
+.profile-info {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    background-color: #fff;
+}
+.profile-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.profile-details h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+.profile-details {
+    margin-left: 30px;
+}
+.profile-details p {
+    margin: 5px 0;
+}
+.main-container {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 80px;
+}
+.playlist-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed;
+    border: none;
+}
+.playlist-table th,
+.playlist-table td {
+    padding: 8px;
+    text-align: left;
+    border: none;
+}
+.playlist-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    border-left: none;
+    border-right: none;
+}
+.playlist-table th:nth-child(1),
+.playlist-table td:nth-child(1) {
+    width: 10%;
+}
+.playlist-table th:nth-child(2),
+.playlist-table td:nth-child(2) {
+    width: 27%;
+}
+.playlist-table th:nth-child(3),
+.playlist-table td:nth-child(3) {
+    width: 27%;
+}
+.playlist-table th:nth-child(4),
+.playlist-table td:nth-child(4) {
+    width: 27%;
+}
+.playlist-table tr:hover {
+    background-color: #f1f1f1;
+}
+.playlist-table a {
+    color: #007bff;
+    text-decoration: none;
+}
+.action-button {
+    background-color: #43486E;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+.action-button:hover {
+    background-color: #c82333;
+}
+.add-song-button-container {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+.add-song-button {
+    background-color: #74C1BA;
+    color: #fff;
+    border: none;
+    width: 700px;
+    padding: 10px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 15px;
+}
+.add-song-button:hover {
+    background-color: #5CFFD1;
+}
+.add-song-container {
+    margin-top: 20px;
+    text-align: center;
+}
+.add-song-form {
+    display: none;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    max-width: 1000px;
+}
+.add-song-form.show {
+    display: block; /* showForm이 true일 때 form이 보이도록 함 */
+}
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap; /* 항목들이 한 줄에 배치되도록 변경 */
+}
+.form-group {
+    flex: 1;
+    min-width: 100px; /* 각 항목의 최소 넓이 설정 */
+}
+.form-group input,
+.form-group select {
+    display: block;
+    padding: 10px;
+    width: 100%; /* 입력 필드가 각 그룹에 맞춰서 넓어지도록 수정 */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.form-actions {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.form-actions button {
+    margin-right: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.form-actions button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+}
+.form-actions button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.form-actions button[type="button"] {
+    background-color: #6c757d;
+    color: #fff;
+}
+.form-actions button[type="button"]:hover {
+    background-color: #5a6268;
+}

@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    margin-bottom: 20px;
+    background-color: #43486E;
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+}
+
+.navbar-brand img {
+    height: 40px;
+}
+
+.profile-container {
+    display: flex;
+    padding: 30px 0px 20px 50px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    background-color: #fff;
+}
+
+.profile-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-details {
+    margin-left: 30px;
+    flex: 1;
+}
+
+.profile-details h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.profile-details p {
+    margin: 5px 0;
+}
+
+.like-button-container {
+    margin-left: auto;
+}
+
+.like-button {
+    background-color: #43486E;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.like-button:hover {
+    background-color: #007bff;
+}
+
+.main-container {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 80px;
+}
+
+.playlist-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed;
+    border: none;
+}
+
+.playlist-table th,
+.playlist-table td {
+    padding: 8px;
+    text-align: left;
+    border: none;
+}
+
+.playlist-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    border-left: none;
+    border-right: none;
+}
+
+.playlist-table th:nth-child(1),
+.playlist-table td:nth-child(1) {
+    width: 10%;
+}
+
+.playlist-table th:nth-child(2),
+.playlist-table td:nth-child(2) {
+    width: 27%;
+}
+
+.playlist-table th:nth-child(3),
+.playlist-table td:nth-child(3) {
+    width: 27%;
+}
+
+.playlist-table th:nth-child(4),
+.playlist-table td:nth-child(4) {
+    width: 27%;
+}
+
+.playlist-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.playlist-table a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.action-button {
+    background-color: #43486E;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.action-button:hover {
+    background-color: #c82333;
+}

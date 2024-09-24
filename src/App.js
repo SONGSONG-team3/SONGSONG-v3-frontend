@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Main from './views/main';
+import Login from './views/login';
+import Mypage from './views/mypage';
+import Signup from './views/signup';
+import Myplaylist from './views/myplaylist';
+import Otherplaylist from './views/otherplaylist';
+import PrivateRoute from './auth/PrivateRoute'; // Adjust the import based on your file structure
+
+const App = () => {
+	return (
+		<div className='App'>
+			<BrowserRouter>
+				<Routes>
+          <Route path="/" element={<Main />} />
+					<Route path="/signup" element={<Signup />} />
+					<Route path="/login" element={<Login />} />
+
+					{/* 인증이 필요한 라우터 */}
+					<Route element={<PrivateRoute />}>
+						<Route path="/mypage" element={<Mypage />} />
+						<Route path="/myplaylist" element={<Myplaylist />} />
+						<Route path="/otherplaylist/:userNo" element={<Otherplaylist />} />
+					</Route>
+				</Routes>
+			</BrowserRouter>
+		</div>
+	);
+};
 
 export default App;

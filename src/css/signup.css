@@ -1,0 +1,75 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content {
+    display: flex;
+    align-items: center; /* 중앙 정렬 */
+    width: 100%;
+    max-width: 1200px;
+}
+
+.rounded-circle {
+    border: 2px solid #ccc;
+    object-fit: cover;
+    margin-right: 20px; /* 오른쪽 여백 추가 */
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 폼 요소를 중앙 정렬 */
+    margin-top: 20px; /* 상단 여백 추가 */
+    text-align: center; /* 내용 중앙 정렬 */
+}
+
+.form-control {
+    width: 300px;
+    margin: 10px 0; /* 위아래 여백 조정 */
+    padding: 10px; /* 내부 여백 추가 */
+}
+
+#valid {
+    font-size: 12px;
+    margin: 0; /* 여백 제거 */
+    text-align: left; /* 왼쪽 정렬 유지 */
+}
+
+
+#btnSignup {
+    width: 300px;
+    background-color: #43486e;
+    border-color: #43486e;
+}
+
+#btnSignup:hover {
+    background-color: #3a4064;
+    border-color: #3a4064;
+}
+
+.genre-btn {
+    background-color: #EDEDED;
+    color: black;
+    border: none;
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.genre-btn.selected {
+    background-color: #74C1BA;
+    color: white;
+}
+
+/* #valid {
+    font-size: 12px;
+    margin: 0;
+} */

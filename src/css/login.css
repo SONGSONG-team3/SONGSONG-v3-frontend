@@ -1,0 +1,28 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 50px;
+}
+
+.form-control {
+    width: 300px;
+}
+
+#btnLogin {
+    width: 300px;
+    background-color: #43486e;
+    border-color: #43486e;
+}
+
+#btnLogin:hover {
+    background-color: #3a4064;
+    border-color: #3a4064;
+}
