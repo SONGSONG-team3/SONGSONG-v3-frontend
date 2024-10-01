@@ -6,9 +6,14 @@ import tokenValidCheck from '../auth/tokenValidCheck';
 
 
 const MyPlaylist = () => {
+
+    const [categories, setCategories] = useState([]); 
+    const [languages, setLanguages] = useState([]); 
+    const [country, setCountry] = useState([]);
     const [user, setUser] = useState({});
     const [playlists, setPlaylists] = useState([]);
     const [showForm, setShowForm] = useState(false);
+
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         category: '',
@@ -40,6 +45,35 @@ const MyPlaylist = () => {
         };
         
         fetchData();
+    }, []);
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const response = await fetch('/commoncodes', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(["001","002","003"]),  // 필요한 groupCodes를 요청
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log(data);
+                    setCategories(data.commonCodeDtoListMap['001']);
+                    setLanguages(data.commonCodeDtoListMap['002']);
+                    setCountry(data.commonCodeDtoListMap['003']);
+                } else {
+                    alert('카테고리 데이터를 불러오는 데 실패했습니다.');
+                }
+            } catch (error) {
+                console.error("Error fetching categories:", error);
+                alert("카테고리 데이터를 불러오는 중 오류가 발생했습니다.");
+            }
+        };
+
+        fetchCategories();
     }, []);
 
     const handleFormChange = (e) => {
@@ -98,7 +132,9 @@ const MyPlaylist = () => {
                     musicName: formData.songTitle,
                     musicArtist: formData.artist,
                     musicLink: formData.songLink,
-                    categoryId: parseInt(formData.category, 10),
+                    musicGenre: parseInt(formData.category, 10),
+                    musicLanguage: parseInt(formData.language, 10),
+                    musicCountry: parseInt(formData.country, 10),
                 }),
             });
     
@@ -175,7 +211,7 @@ const MyPlaylist = () => {
                     {playlists.length > 0 ? (
                         playlists.map(playlist => (
                             <tr key={playlist.music.musicId}>
-                                <td>{playlist.music.categoryDto.categoryName}</td>
+                                <td>{playlist.music.musicGenre}</td>
                                 <td>{playlist.music.musicName}</td>
                                 <td>{playlist.music.musicArtist}</td>
                                 <td>
@@ -206,14 +242,31 @@ const MyPlaylist = () => {
                             <div className="form-group">
                                 <select name="category" onChange={handleFormChange} required>
                                     <option value="">카테고리 선택</option>
-                                    <option value="1">발라드</option>
-                                    <option value="2">힙합</option>
-                                    <option value="3">인디</option>
-                                    <option value="4">락/메탈</option>
-                                    <option value="5">트로트</option>
-                                    <option value="6">댄스</option>
-                                    <option value="7">R&B</option>
-                                    <option value="8">밴드</option>
+                                    {categories.map((category) => (
+                                        <option key={category.code} value={category.code}>
+                                            {category.codeName}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div className="form-group">
+                            <select name="language" onChange={handleFormChange} required>
+                                    <option value="">언어 선택</option>
+                                    {languages.map((lan) => (
+                                        <option key={lan.code} value={lan.code}>
+                                            {lan.codeName}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div className="form-group">
+                            <select name="country" onChange={handleFormChange} required>
+                                    <option value="">국가 선택</option>
+                                    {country.map((c) => (
+                                        <option key={c.code} value={c.code}>
+                                            {c.codeName}
+                                        </option>
+                                    ))}
                                 </select>
                             </div>
                             <div className="form-group">
