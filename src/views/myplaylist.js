@@ -7,7 +7,7 @@ import tokenValidCheck from '../auth/tokenValidCheck';
 
 const MyPlaylist = () => {
 
-    const [categories, setCategories] = useState([]); 
+    const [genre, setGenres] = useState([]); 
     const [languages, setLanguages] = useState([]); 
     const [country, setCountry] = useState([]);
     const [user, setUser] = useState({});
@@ -55,21 +55,21 @@ const MyPlaylist = () => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(["001","002","003"]),  // 필요한 groupCodes를 요청
+                    body: JSON.stringify(["001","002","003"]),
                 });
 
                 if (response.ok) {
                     const data = await response.json();
                     console.log(data);
-                    setCategories(data.commonCodeDtoListMap['001']);
+                    setGenres(data.commonCodeDtoListMap['001']);
                     setLanguages(data.commonCodeDtoListMap['002']);
                     setCountry(data.commonCodeDtoListMap['003']);
                 } else {
-                    alert('카테고리 데이터를 불러오는 데 실패했습니다.');
+                    alert('공통코드 데이터를 불러오는 데 실패했습니다.');
                 }
             } catch (error) {
                 console.error("Error fetching categories:", error);
-                alert("카테고리 데이터를 불러오는 중 오류가 발생했습니다.");
+                alert("공통코드 데이터를 불러오는 중 오류가 발생했습니다.");
             }
         };
 
@@ -81,7 +81,7 @@ const MyPlaylist = () => {
         let selectedOption = null;
 
         if (name === "category") {
-            selectedOption = categories.find(cat => cat.code === value);
+            selectedOption = genre.find(cat => cat.code === value);
         } else if (name === "language") {
             selectedOption = languages.find(lan => lan.code === value);
         } else if (name === "country") {
@@ -147,9 +147,9 @@ const MyPlaylist = () => {
                     musicName: formData.songTitle,
                     musicArtist: formData.artist,
                     musicLink: formData.songLink,
-                    musicGenre: formData.category, // codeName 저장
-                musicLanguage: formData.language, // codeName 저장
-                musicCountry: formData.country, 
+                    musicGenre: formData.category,
+                    musicLanguage: formData.language,
+                    musicCountry: formData.country, 
                 }),
             });
     
@@ -255,11 +255,11 @@ const MyPlaylist = () => {
                     <form onSubmit={handleSubmit}>
                         <div className="form-row">
                             <div className="form-group">
-                                <select name="category" onChange={handleFormChange} required>
+                                <select name="genre" onChange={handleFormChange} required>
                                     <option value="">카테고리 선택</option>
-                                    {categories.map((category) => (
-                                        <option key={category.code} value={category.code}>
-                                            {category.codeName}
+                                    {genre.map((g) => (
+                                        <option key={g.code} value={g.code}>
+                                            {g.codeName}
                                         </option>
                                     ))}
                                 </select>
