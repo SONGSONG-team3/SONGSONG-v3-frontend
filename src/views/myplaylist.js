@@ -16,10 +16,12 @@ const MyPlaylist = () => {
 
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        category: '',
+        genre: '',
         songTitle: '',
         artist: '',
         songLink: '',
+        language: '',
+        country: ''
     });
     useEffect(() => {
         const fetchData = async () => {
@@ -80,7 +82,7 @@ const MyPlaylist = () => {
         const { name, value } = e.target;
         let selectedOption = null;
 
-        if (name === "category") {
+        if (name === "genre") {
             selectedOption = genre.find(cat => cat.code === value);
         } else if (name === "language") {
             selectedOption = languages.find(lan => lan.code === value);
@@ -147,7 +149,7 @@ const MyPlaylist = () => {
                     musicName: formData.songTitle,
                     musicArtist: formData.artist,
                     musicLink: formData.songLink,
-                    musicGenre: formData.category,
+                    musicGenre: formData.genre,
                     musicLanguage: formData.language,
                     musicCountry: formData.country, 
                 }),
