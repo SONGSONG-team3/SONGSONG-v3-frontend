@@ -113,8 +113,12 @@ const MainPage = () => {
     const genres = ['발라드', '힙합', '인디', '락/메탈', '트로트', '댄스', 'R&B', '밴드'];
 
     const handleGenreClick = (index) => {
-        setSelectedGenreIndex(index);
-        showPlaylist(index + 1); // 카테고리 ID를 index + 1로 전달
+        // setSelectedGenreIndex(index);
+        // showPlaylist(index + 1); // 카테고리 ID를 index + 1로 전달
+
+        // 숫자를 두 자리 문자열로 변환 (1 => '01', 2 => '02' ...)
+        const categoryCode = (index + 1).toString().padStart(2, '0');
+        showPlaylist(categoryCode); // '01', '02' 형태로 전달
     };
 
     return (
