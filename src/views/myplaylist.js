@@ -78,8 +78,23 @@ const MyPlaylist = () => {
 
     const handleFormChange = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        let selectedOption = null;
+
+        if (name === "category") {
+            selectedOption = categories.find(cat => cat.code === value);
+        } else if (name === "language") {
+            selectedOption = languages.find(lan => lan.code === value);
+        } else if (name === "country") {
+            selectedOption = country.find(c => c.code === value);
+        }
+
+        if (selectedOption) {
+            setFormData({ ...formData, [name]: selectedOption.codeName });
+        } else {
+            setFormData({ ...formData, [name]: value });
+        }
     };
+    
     const handleNotLoggedIn = () => {
         setUser(null);
     };
@@ -132,9 +147,9 @@ const MyPlaylist = () => {
                     musicName: formData.songTitle,
                     musicArtist: formData.artist,
                     musicLink: formData.songLink,
-                    musicGenre: parseInt(formData.category, 10),
-                    musicLanguage: parseInt(formData.language, 10),
-                    musicCountry: parseInt(formData.country, 10),
+                    musicGenre: formData.category, // codeName 저장
+                musicLanguage: formData.language, // codeName 저장
+                musicCountry: formData.country, 
                 }),
             });
     
